@@ -1,0 +1,15 @@
+torch
+torchvision
+matplotlib 
+
+// Steps to run the model
+
+// Mac : pip3 install torch torchvision matplotlib
+// Windows : pip install torch torchvision matplotlib
+
+// Commands 
+// Mac : 1. python3 main.py 2. python3 test.py 
+// Windows : 1. python main.py 2. python test.py
+
+// To test the model
+// go to test.py and change the directory of image in line 26
