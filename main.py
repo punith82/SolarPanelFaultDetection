@@ -3,9 +3,9 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms, models
 from torch.utils.data import DataLoader
-from torchvision.models import mobilenet_v2, MobileNet_V2_Weights
+# from torchvision.models import mobilenet_v2, MobileNet_V2_Weights
 
-model = mobilenet_v2(weights=MobileNet_V2_Weights.DEFAULT)
+# model = mobilenet_v2(weights=MobileNet_V2_Weights.DEFAULT)
 # Device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -17,8 +17,8 @@ transform = transforms.Compose([
 ])
 
 # Dataset
-train_data = datasets.ImageFolder("dataset/train", transform=transform)
-val_data = datasets.ImageFolder("dataset/val", transform=transform)
+train_data = datasets.ImageFolder("faultsdataset/train", transform=transform)
+val_data = datasets.ImageFolder("faultsdataset/val", transform=transform)
 
 train_loader = DataLoader(train_data, batch_size=8, shuffle=True)
 val_loader = DataLoader(val_data, batch_size=8)

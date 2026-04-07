@@ -8,13 +8,13 @@ from torchvision.models import mobilenet_v2, MobileNet_V2_Weights
 model = mobilenet_v2(weights=MobileNet_V2_Weights.DEFAULT)
 
 # Modify classifier (same as training)
-model.classifier[1] = torch.nn.Linear(model.last_channel, 2)
+model.classifier[1] = torch.nn.Linear(model.last_channel, 5)
 
 model.load_state_dict(torch.load("model.pth"))
 model.eval()
 
 # Class names (VERY IMPORTANT - same order)
-classes = ['cat', 'dog']
+classes = ['birddrop', 'dusty','hotspot','normal','physical']
 
 # Image transform
 transform = transforms.Compose([
@@ -23,7 +23,7 @@ transform = transforms.Compose([
 ])
 
 # Load image
-img = Image.open("dataset/val/dog/image copy 3.png")  # put your test image here
+img = Image.open("faultsdataset/test/dusty/Dust (2).jpg")  # put your test image here
 img = transform(img).unsqueeze(0)
 
 # Prediction
