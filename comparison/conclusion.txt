@@ -1,0 +1,95 @@
+======================================================================
+SOLAR PANEL FAULT DETECTION (SPFD)
+Model Comparison — Conclusion
+======================================================================
+
+1. OVERVIEW
+----------------------------------------
+Three deep learning models were trained and evaluated on the SPFD
+dataset containing 5 fault classes: birddrop, dusty, hotspot,
+normal, and physical damage.
+
+2. QUANTITATIVE RESULTS
+----------------------------------------
+  MobileNetV2
+    Test Accuracy    : 83.30%
+    Macro F1-Score   : 84.35%
+    Weighted F1      : 82.35%
+    Test Loss        : 0.0000
+    Parameters       : —M
+    Inference Time   : — ms/image
+    Weakest Class    : birddrop (F1 = 66.7%)
+
+  EfficientNet
+    Test Accuracy    : 85.86%
+    Macro F1-Score   : 87.39%
+    Weighted F1      : 85.67%
+    Test Loss        : 0.0000
+    Parameters       : —M
+    Inference Time   : — ms/image
+    Weakest Class    : dusty (F1 = 77.5%)
+
+  VisionTransformer
+    Test Accuracy    : 82.16%
+    Macro F1-Score   : 84.79%
+    Weighted F1      : 81.94%
+    Test Loss        : 0.0000
+    Parameters       : —M
+    Inference Time   : — ms/image
+    Weakest Class    : dusty (F1 = 75.2%)
+
+3. KEY FINDINGS
+----------------------------------------
+  ► Best Accuracy     : EfficientNet
+  ► Best Macro F1     : EfficientNet
+  ► Lowest Test Loss  : MobileNetV2
+  ► Fastest Inference : MobileNetV2
+  ► Smallest Model    : MobileNetV2
+
+4. ANALYSIS
+----------------------------------------
+  MobileNetV2 (0M params, 0ms inference):
+    Designed for mobile/edge deployment. Achieves 83.3% accuracy
+    with the smallest memory footprint. Best choice for real-time
+    fault detection on embedded hardware (e.g., Raspberry Pi, drone).
+    Struggles most with 'birddrop' — likely due to visual similarity with
+    other classes.
+
+  EfficientNet (0M params, 0ms inference):
+    Compound-scaled architecture balancing depth, width, and resolution.
+    Achieves 85.9% accuracy with a strong macro F1 of 87.4%.
+    The 2-phase transfer learning (freeze → fine-tune) is key to its
+    performance. Recommended as the primary model for this project.
+
+  Vision Transformer (0M params, 0ms inference):
+    Attention-based architecture. Achieves 82.2% accuracy but
+    requires significantly more compute (0M parameters).
+    May improve further with larger datasets; transformers generally
+    need more data than CNNs to reach their full potential.
+
+5. RECOMMENDATION
+----------------------------------------
+  For deployment accuracy  : Use EfficientNet
+  For edge/real-time use   : Use MobileNetV2 (fastest inference)
+  For minimal memory       : Use MobileNetV2 (fewest parameters)
+
+  Overall recommendation for the SPFD project:
+  EfficientNet achieves the best balance of accuracy and generalisation.
+  MobileNetV2 is the preferred choice for any real-world drone or
+  IoT deployment scenario due to speed and size constraints.
+
+6. LIMITATIONS & FUTURE WORK
+----------------------------------------
+  • Dataset size is the primary bottleneck. Collecting more images,
+    especially for the minority classes (birddrop, physical), will
+    directly improve all models.
+  • Data augmentation with domain-specific transforms (sun glare,
+    shadow simulation) could further improve robustness.
+  • Ensemble of EfficientNet + MobileNetV2 could combine their
+    complementary strengths.
+  • Knowledge distillation: use EfficientNet to train a smaller,
+    faster student model for edge deployment.
+
+======================================================================
+Generated automatically by SPFD/comparison/compare_results.py
+======================================================================

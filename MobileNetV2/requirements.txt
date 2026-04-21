@@ -1,0 +1,20 @@
+#for windows system
+tensorflow
+numpy
+matplotlib
+opencv-python
+scikit-learn
+pillow
+pandas
+seaborn
+
+#for Mac
+#tensorflow-macos
+#tensorflow-metal
+#numpy
+#matplotlib
+#opencv-python
+#scikit-learn
+#pillow
+#pandas
+#seaborn

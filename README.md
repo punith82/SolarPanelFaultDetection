@@ -9,3 +9,5 @@ Steps to run the model
 
 // To test the model
 // go to test.py and change the directory of image in line 26
+
+source /Users/punithkumarr/Desktop/SPFD/venv310/bin/activate

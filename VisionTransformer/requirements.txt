@@ -1,0 +1,12 @@
+# Vision Transformer requirements
+# You may need to install 'tensorflow', 'tensorflow-addons', and 'vit-keras' for ViT support
+
+tensorflow
+vit-keras
+numpy
+matplotlib
+opencv-python
+scikit-learn
+pillow
+pandas
+seaborn
