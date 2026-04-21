@@ -1,4 +1,3 @@
-model,accuracy,macro_f1,macro_precision,macro_recall,weighted_f1,f1_birddrop,f1_dusty,f1_hotspot,f1_normal,f1_physical
-MobileNetV2,83.30%,84.35%,86.40%,85.17%,82.35%,66.67%,80.15%,100.00%,91.55%,83.39%
-EfficientNet,85.86%,87.39%,87.50%,87.94%,85.67%,83.96%,77.51%,100.00%,91.26%,84.21%
-VisionTransformer,82.16%,84.79%,86.86%,83.81%,81.94%,78.83%,75.15%,100.00%,86.14%,83.80%
+version https://git-lfs.github.com/spec/v1
+oid sha256:b0306b056289f850fc018d2ca01d865fd6dc11c667a7409c55d8a60b3ee2865d
+size 375

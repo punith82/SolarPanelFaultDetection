@@ -13,4 +13,4 @@ matplotlib
 
 // To test the model
 // go to test.py and change the directory of image in line 26
-source /Users/punithkumarr/Desktop/SPFD/mobilenet-env/bin/activate
+source /Users/punithkumarr/Desktop/SPFD/bin/activate
