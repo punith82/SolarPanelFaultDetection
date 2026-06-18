@@ -1,17 +1,17 @@
-EfficientNetB0 — Solar Panel Fault Detection
+EfficientNetB1 — Solar Panel Fault Detection
 ============================================================
-Test Loss     : 0.7333
-Test Accuracy : 88.33%
-Top-2 Accuracy: 96.96%
+Test Loss     : 1.0409
+Test Accuracy : 88.05%
+Top-2 Accuracy: 96.20%
 
               precision    recall  f1-score   support
 
-    birddrop     0.8805    0.8326    0.8559       239
-       dusty     0.8532    0.7686    0.8087       242
-     hotspot     0.9200    1.0000    0.9583        23
-      normal     0.8750    0.9679    0.9191       405
-    physical     0.9562    0.9034    0.9291       145
+    birddrop     0.8945    0.8159    0.8534       239
+       dusty     0.7833    0.8512    0.8158       242
+     hotspot     1.0000    1.0000    1.0000        23
+      normal     0.9150    0.9309    0.9229       405
+    physical     0.9203    0.8759    0.8975       145
 
-    accuracy                         0.8833      1054
-   macro avg     0.8970    0.8945    0.8942      1054
-weighted avg     0.8834    0.8833    0.8817      1054
+    accuracy                         0.8805      1054
+   macro avg     0.9026    0.8948    0.8979      1054
+weighted avg     0.8827    0.8805    0.8807      1054

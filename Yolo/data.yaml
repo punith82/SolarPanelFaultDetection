@@ -1,0 +1,6 @@
+path: /Users/punithkumarr/Desktop/SPFD1/Yolo/YoloData
+train: images/train
+val: images/val
+
+nc: 1
+names: ["panel"]

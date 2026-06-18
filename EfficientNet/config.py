@@ -47,10 +47,10 @@ NUM_CLASSES = len(CLASS_NAMES)   # 5
 # EfficientNetB0 was designed for 224×224.
 # EfficientNetB1 uses 240×240 — slightly better accuracy, slightly slower.
 # Change IMG_SIZE to (240, 240) and MODEL_VARIANT to "B1" to switch.
-IMG_SIZE      = (224, 224)   # (height, width) in pixels
+IMG_SIZE      = (240, 240)   # (height, width) in pixels — using B1
 IMG_CHANNELS  = 3            # RGB → 3 channels
-INPUT_SHAPE   = IMG_SIZE + (IMG_CHANNELS,)  # (224, 224, 3)
-MODEL_VARIANT = "B0"         # "B0" or "B1"
+INPUT_SHAPE   = IMG_SIZE + (IMG_CHANNELS,)  # (240, 240, 3)
+MODEL_VARIANT = "B1"         # "B0" or "B1" — upgraded for better accuracy
 
 # -----------------------------------------------------------------------------
 # 4. TRAINING HYPERPARAMETERS
@@ -62,7 +62,7 @@ BATCH_SIZE = 32
 
 # EPOCHS: maximum number of times we loop over the full training dataset.
 #   Early stopping will halt training sooner if the model stops improving.
-EPOCHS = 50
+EPOCHS = 150  # increased from 50 for better convergence
 
 # LEARNING RATE for the FINAL fine-tuning phase (when we unfreeze the backbone).
 #   Keep this VERY small — large LR destroys pre-trained weights.
@@ -72,24 +72,24 @@ FINETUNE_LR = 1e-5   # 0.00001
 INITIAL_LR  = 1e-3   # 0.001
 
 # How many epochs to train the HEAD before unfreezing the backbone.
-HEAD_EPOCHS = 10
+HEAD_EPOCHS = 20  # increased from 10 for better head training
 
 # How many top layers of EfficientNet to unfreeze for fine-tuning.
 #   0   = freeze everything (fastest, less accurate)
 #   20  = unfreeze last 20 layers (good balance)
 #   -1  = unfreeze ALL layers (slowest, best accuracy but needs lots of data)
-UNFREEZE_LAYERS = 20
+UNFREEZE_LAYERS = 50  # increased from 20 for more backbone adaptation
 
 # Dropout rate: randomly turns off this fraction of neurons during training.
 #   Prevents the model from memorising training images (overfitting).
-DROPOUT_RATE = 0.4
+DROPOUT_RATE = 0.5  # increased from 0.4 for stronger regularization
 
 # L2 regularisation strength — another tool against overfitting.
-L2_REG = 1e-4
+L2_REG = 2e-4  # increased from 1e-4 for stronger regularization
 
 # Label smoothing: instead of hard 0/1 targets, use 0.1/0.9.
 #   Stops the model from being over-confident and improves generalisation.
-LABEL_SMOOTHING = 0.1
+LABEL_SMOOTHING = 0.2  # increased from 0.1 for stronger smoothing
 
 # -----------------------------------------------------------------------------
 # 5. EARLY STOPPING & CALLBACKS
