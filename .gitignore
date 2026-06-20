@@ -2,4 +2,4 @@ venv/
 venv310/
 venv_py310/
 __pycache__/
-.DS
+.DSinstall_log.txt
